@@ -1,7 +1,8 @@
 import React from 'react'
+import LaunchesLoader from './components/LaunchesLoader';
 
 export default function App() {
   return (
-    <span>privet</span>
+    <LaunchesLoader />
   )
 }
