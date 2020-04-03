@@ -5,11 +5,13 @@ import { Timestamp, Time, Quarter } from '../Types'
 export default function Timer(props: { now: Timestamp, till: Time }) {
   const humanTime = new HumanTime(props.now, props.till)
   
-  let text = humanTime.past ? 'Запущен ' : 'Запуск '
+  let text = humanTime.past ? '' : 'Состоится '
   text += humanTime.absolute
-  if (humanTime.relative) text += ` (${humanTime.relative})`
   return (
-    <div>{text}</div>
+    <div className='time'>
+      {text}
+      {humanTime.relative && <span className='additional'> &mdash; {humanTime.relative}</span>}
+    </div>
   )
 }
 

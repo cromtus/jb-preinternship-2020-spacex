@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  min-height: 100%;
+  background: url('img/musk.png');
+  background-color: #0e0e0e;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: lighter;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 40px;
+}
+
+.launch {
+  margin-bottom: 40px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  font-size: 23px;
+}
+
+.launch-header {
+  padding: 5px 0;
+}
+
+.launch-details {
+  padding: 5px 0;
+  display: flex;
+}
+
+.mission {
+  font-weight: lighter;
+}
+
+.icon-text {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.icon-text span {
+  margin-left: 7px;
+}
+
+.icon-text img {
+  width: 15px;
+}
+
+.time {
+  font-size: 12px;
+  opacity: .9;
+  margin-bottom: 5px;
+}
+
+.time .additional {
+  opacity: .5
+}
+
+a, a:visited {
+  color: #aaaaaa;
+}
+
+a:hover {
+  text-decoration: none;
+}

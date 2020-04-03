@@ -36,9 +36,16 @@ export default class LaunchesList extends React.Component<LaunchesListProps, Lau
   render() {
     return (
       <div>
-        {this.props.launches.map((launch, key) =>
-          <LaunchItem key={key} data={launch} now={this.state.now} />
-        )}
+        <div className='launches-list'>
+          {this.props.launches.map((launch, key) =>
+            <LaunchItem key={key} data={launch} now={this.state.now} />
+          )}
+        </div>
+        {this.props.launches.length > 0 &&
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img src='img/starman.jpg' width={300} />
+          </div>
+        }
       </div>
     )
   }
@@ -57,11 +64,19 @@ class LaunchItem extends React.Component<LaunchItemProps, {}> {
   render() {
     const { data, now } = this.props
     return (
-      <div style={{ marginBottom: 20 }}>
-        <div>Где: {data.location}</div>
-        <div>Миссия: {data.mission}</div>
-        <div>На чём: {data.vehicle}</div>
-        <Timer now={now} till={data.launch} />
+      <div className='launch'>
+        <div className='launch-header'>
+          <Timer now={now} till={data.launch} />
+          <div className='mission'>Миссия <b>{data.mission}</b></div>
+        </div>
+        <div className='launch-details'>
+          <div className='icon-text' title='Носитель'>
+            <img src='img/rocket.svg' /><span>{data.vehicle}</span>
+          </div>
+          <div className='icon-text' title='Полигон'>
+            <img src='img/location.svg' /><span>{data.location}</span>
+          </div>
+        </div>
       </div>
     )
   }

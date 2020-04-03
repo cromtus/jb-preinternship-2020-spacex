@@ -26,13 +26,11 @@ export default class LaunchesLoader extends React.Component<{}, LaunchesLoaderSt
   makeRequest() {
     this.setState({ status: 'loading' })
     const self = this
-    setTimeout(() => { // TODO remove
-      Axios.get('launches.json').then((response: AxiosResponse<ServerResponse>) => {
-        self.updateContent(response.data)
-      }).catch(error => {
-        console.log(error)
-      })
-    }, 1000)
+    Axios.get('launches.json').then((response: AxiosResponse<ServerResponse>) => {
+      self.updateContent(response.data)
+    }).catch(error => {
+      self.setState({ status: 'error' })
+    })
   }
 
   componentDidMount() {
@@ -45,9 +43,15 @@ export default class LaunchesLoader extends React.Component<{}, LaunchesLoaderSt
         <LaunchesList launches={this.state.payload} />
       :
         this.state.status === 'loading' ?
-          <span>Загрузка</span>
+          <div className='loading'>Загрузка...</div>
         :
-          <span>Ошибочка вышла</span>
+          <div className='error'>
+            Загрузка не удалась.&nbsp;
+            <a href='#' onClick={e => {
+              e.preventDefault()
+              this.makeRequest()
+            }}>Повторить попытку</a>
+          </div>
     )
   }
 }
