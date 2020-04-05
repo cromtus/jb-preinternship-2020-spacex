@@ -43,7 +43,7 @@ export default class LaunchesList extends React.Component<LaunchesListProps, Lau
         </div>
         {this.props.launches.length > 0 &&
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src='img/starman.jpg' width={300} />
+            <img src='img/starman.jpg' width={300} height={169} />
           </div>
         }
       </div>
