@@ -89,7 +89,9 @@ class HumanTime {
         if (till.hours === null || till.minutes === null) {
           this.absolute = `${till.date} ${months[targetDate.getMonth()]}`
           if (dateNow.getFullYear() !== till.years) {
-            this.absolute += ` в ${till.years} году`
+            this.absolute += ` ${till.years} года`
+          } else {
+            this.absolute += ` этого года`
           }
         } else {
           targetDate.setHours(till.hours)
