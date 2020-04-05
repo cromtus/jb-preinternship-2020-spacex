@@ -77,8 +77,10 @@ class HumanTime {
         const year = (dateNow.getFullYear() === till.years) ? 'этом' : till.years
         this.absolute = `в ${year} году`
       } else {
-        const year = (dateNow.getFullYear() === till.years) ? 'этого' : till.years
-        this.absolute = `${quarterCases(till.quarter)} ${year} года`
+        this.absolute = `${quarterCases(till.quarter)}`
+        if (dateNow.getFullYear() === till.years) {
+          this.absolute += ` ${till.years} года`
+        }
       }
     } else {
       targetDate.setMonth(till.months - 1)
@@ -90,8 +92,6 @@ class HumanTime {
           this.absolute = `${till.date} ${months[targetDate.getMonth()]}`
           if (dateNow.getFullYear() !== till.years) {
             this.absolute += ` ${till.years} года`
-          } else {
-            this.absolute += ` этого года`
           }
         } else {
           targetDate.setHours(till.hours)
